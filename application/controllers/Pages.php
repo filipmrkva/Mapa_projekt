@@ -5,8 +5,7 @@ class Pages extends CI_Controller {
     {            
                 $this->load->model('mapa_proj_model');
                 $data['polozky'] = $this->mapa_proj_model->get_menu();
-                $data['udaje'] = $this->db->query('SELECT * FROM mesto')->result();
-                $data['udaje'] = $this->db->query('SELECT * FROM obor')->result();
+                //$data['udaje'] = $this->db->query('')->result();
 		$this->load->view('templates/header', $data);                
 		$this->load->view('pages/home', $data);  
 		$this->load->view('templates/footer');
@@ -15,8 +14,7 @@ class Pages extends CI_Controller {
         {
                 $this->load->model('mapa_proj_model');
                 $data['polozky'] = $this->mapa_proj_model->get_menu();
-                $data['udaje'] = $this->db->query('SELECT * from mesto')->result();
-                $data['udaje1'] = $this->db->query('SELECT * from obor')->result();
+                // $data['udaje'] = $this->db->query('SELECT skola.nazev, mesto.nazevm, pocet_prijatych.pocet from skola, mesto, pocet_prijatych')->result();
                 $this->load->view('templates/header', $data);                
 		$this->load->view('pages/home', $data);  
 		$this->load->view('templates/footer');
