@@ -81,7 +81,7 @@ function myFunction() {
         
   <div class="container">
       <div class="text-center">
-          <h2><u><b>Seznam škol v ČR</b></u></h1>
+          <h2><u><b>Seznam škol</b></u></h2>
       </div>
 <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Hledeat výraz z libolvého sloupce...">  
         
@@ -117,9 +117,9 @@ function myFunction() {
         </div>
         <div class="col-12">
         <div class="jumbotron bg-dark text-white">
-            <h4><u>Prosím vložte něco zajímavého lulw</u></h4> 
+            <h4><u>Opakovací projekt třetího ročníku + práce s daty na mapě</u></h4> 
   <hr class="my-3">
-  <p>Tento projekt vypracoval Filip Mrkva @csgocompany</p> 
+  <p>Tento projekt vypracoval Filip Mrkva, student čtvrtého ročníku @2021/22</p> 
 </div>
             </div>
     </body>

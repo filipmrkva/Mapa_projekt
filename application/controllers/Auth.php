@@ -64,6 +64,11 @@ class Auth extends CI_Controller
 	 */
 	public function login()
 	{
+                $this->load->model('mapa_proj_model');
+                $data['polozky'] = $this->mapa_proj_model->get_menu();
+                $this->load->view('templates/header', $data);
+            
+            
 		$this->data['title'] = $this->lang->line('login_heading');
 
 		// validate form input
@@ -81,7 +86,7 @@ class Auth extends CI_Controller
 				//if the login is successful
 				//redirect them back to the home page
 				$this->session->set_flashdata('message', $this->ion_auth->messages());
-				redirect('/', 'refresh');
+				redirect('auth/formular', 'refresh');
 			}
 			else
 			{
@@ -112,6 +117,7 @@ class Auth extends CI_Controller
 
 			$this->_render_page('auth' . DIRECTORY_SEPARATOR . 'login', $this->data);
 		}
+                 $this->load->view('templates/footer', $data);
 	}
 
 	/**
@@ -125,7 +131,7 @@ class Auth extends CI_Controller
 		$this->ion_auth->logout();
 
 		// redirect them to the login page
-		redirect('auth/login', 'refresh');
+		redirect('pages/home', 'refresh');
 	}
 
 	/**
@@ -889,5 +895,16 @@ class Auth extends CI_Controller
 			return $view_html;
 		}
 	}
+        
+        public function formular()
+        {
+            if($this->ion_auth->logged_in()){
+                $this->load->model('mapa_proj_model');
+                $data['polozky'] = $this->mapa_proj_model->get_menu();
+                $this->load->view('templates/headerform', $data);                
+		$this->load->view('pages/formular', $data);  
+		$this->load->view('templates/footer');
+            }
+        }
 
 }
