@@ -17,7 +17,19 @@
 <!-- Material Design Bootstrap -->
 <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.9/css/mdb.min.css" rel="stylesheet">
 <style>
-
+  button {
+  background-color: #0099ff;
+  border: 2px solid white;
+  color: white;
+  position: solid;
+  padding: 11px 28px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 15px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
 </style>
     </head>
     
