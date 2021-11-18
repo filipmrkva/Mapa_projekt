@@ -23,6 +23,10 @@
     border-style: solid;
     border-color: white;
 }
+body {
+     text-align: center;
+     background-image: url(<?php echo base_url();?>images/wecantrryit.jpg);
+    }
         </style>
     </head>
     <body>
@@ -50,9 +54,10 @@
         </div>
     </body>
 </html>
+
 <?php
 
-// přidávání dat do databáze
+ // přidávání dat do databáze
 
     $connect = mysqli_connect("localhost","root","","mapa_proj");
     if(isset($_POST['insert'])) {
@@ -64,9 +69,10 @@
         
     if(!empty($nazev) && !empty($nazevm) && !empty($pocet) && !empty($nazevo) )   {
     
-        
-        $sql = "INSERT skola.nazev as 'Škola', mesto.nazevm as 'Město', pocet_prijatych.pocet as 'Počet přijatých', obor.nazevo as 'Obor' from skola INNER JOIN mesto ON mesto.id=skola.mesto INNER join pocet_prijatych ON pocet_prijatych.skola = skola.id INNER JOIN obor ON obor.id = pocet_prijatych.obor INTO `skola, mesto, pocet_prijatych, obor`(`nazev`, `nazevm`, `pocet`,`nazevo`)"
+          $sql = "INSERT INTO `skola.nazev, mesto.nazevm, pocet_prijatych.pocet, obor.nazevo" . "`(`nazev`, `nazevm`, `pocet`,`nazevo`)"
                                . " VALUES ('$nazev','$nazevm','$pocet','$nazevo')" ;
+       /* $sql = "INSERT skola.nazev as 'Škola', mesto.nazevm as 'Město', pocet_prijatych.pocet as 'Počet přijatých', obor.nazevo as 'Obor' from skola INNER JOIN mesto ON mesto.id=skola.mesto INNER join pocet_prijatych ON pocet_prijatych.skola = skola.id INNER JOIN obor ON obor.id = pocet_prijatych.obor INTO `skola && mesto && pocet_prijatych && obor`(`nazev`, `nazevm`, `pocet`,`nazevo`)"
+                               . " VALUES ('$nazev','$nazevm','$pocet','$nazevo')" ; */
     $qry = mysqli_query($connect, $sql);
     if($qry){
         echo '<script type="text/javascript"> alert("Data byla úspěšně přidána do databáze") </script>';
@@ -78,4 +84,7 @@
      
     }
     mysqli_close($connect);
-?>
+
+   /* $sql = "INSERT INTO `majitel`(`jmeno`, `prijmeni`, `adresa`,`telefon`, `email`)"
+                               . " VALUES ('$jmeno','$prijmeni','$adresa','$telefon','$email')" ; */
+    ?>

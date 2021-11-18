@@ -47,10 +47,10 @@
 <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
 <script>
     var map = L.map('map').setView([49.052346, 17.501221], 11.4);
-var osm = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+var mapa = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 });
-osm.addTo(map)
+mapa.addTo(map)
 
 var popup = L.popup();
 
@@ -137,5 +137,23 @@ marker23.bindPopup("<b>ZŠ Jalubí</b>").closePopup();
 
 var marker24 = L.marker([48.930711, 17.74298]).addTo(map);
 marker24.bindPopup("<b>ZŠ Březová</b>").closePopup();
-
 </script>
+<!--
+<?php 
+
+    
+            $conn = mysqli_connect("localhost","root","","mapa_proj");
+            $sql ="SELECT * from skola";
+            $result = $conn-> query($sql);
+
+            //echo "<script>alert('".$row['geo-lat']."');</script>";
+    
+foreach ($result as $row) { 
+    //echo "<script>alert('".$row['geo-lat'], $row['geo-long'], $row['nazev'] ."');</script>"; ?>
+    <script> var marker = L.marker([<?php echo $row['geo-lat']; ?>, <?php echo $row['geo-long']; ?>]).addTo(map); </script>
+
+    ?>
+
+
+<?php } ?>
+->
