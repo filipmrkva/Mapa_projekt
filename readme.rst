@@ -68,3 +68,9 @@ Acknowledgement
 
 The CodeIgniter team would like to thank EllisLab, all the
 contributors to the CodeIgniter project and you, the CodeIgniter user.
+
+***************
+Odkaz na web zprovozněný na webhostingu
+***************
+
+http://seznamskol.4fan.cz/
